@@ -10,6 +10,7 @@
 #01/15/24 Manjunathan - Removed log off functionality and added reboot limited parms s,k,r
 #01/15/24 Manjunathan - Scheduled a cronjob which start when linux boots up. Igored os.system module as priviledges are required
 #                       used subprocess instead
+#05/07/25 Manjunathan - Added Operating Platform name indication
 #cronjob input: @reboot sudo python3 /home/manjunathan/Root_Program/machineUp.py &
 
 
@@ -26,17 +27,18 @@ import subprocess
 
 _CODE = random.randint(1000,9999)
 
-
+platform_name = sys.platform
 
 msg = EmailMessage()
 msg['Subject'] = 'Computer boot up activity detected'
 msg['From'] = "nathanm6716@gmail.com"
 msg['To'] = "manjunathsg407@gmail.com"
-msg.set_content("Login Success.\nRemote Code = "+str(_CODE)+"\nParms = _shutdown = s, _kill = k, _reboot = r")
+msg.set_content("Login Success\nSystem: "+str(platform_name)+"\nRemote Code = "+str(_CODE)+"\nParms = _shutdown = s, _kill = k, _reboot = r")
 
 sender_email = "nathanm6716@gmail.com"
 rec_email = "manjunathsg407@gmail.com"
 password = "dfqagaljnaxstnzx"
+
 
 def email_send_smtp():
     Email = 0
@@ -77,7 +79,6 @@ def imap_ack():
             #os.system("reboot")
             cmdCommand = "reboot"
             process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
-
 
 
 try:
