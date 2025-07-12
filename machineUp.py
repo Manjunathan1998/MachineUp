@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#This Program creates a backdoor to this computer Admin Manjunathan Sivakumar
+#This Program creates a backdoor to this computer Admin
 #Development Started: 30 OCT 2023
 #This Program is scheduled in Task Scheduler which triggers this event everytime when windows boots up or Cron job in linux env
 #Version: 1.1.3
