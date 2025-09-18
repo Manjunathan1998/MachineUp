@@ -35,9 +35,9 @@ msg['From'] = "nathanm6716@gmail.com"
 msg['To'] = "manjunathsg407@gmail.com"
 msg.set_content("Login Success\nSystem: "+str(platform_name)+"\nRemote Code = "+str(_CODE)+"\nParms = _shutdown = s, _kill = k, _reboot = r")
 
-sender_email = "nathanm6716@gmail.com"
+sender_email = "send@gmail.com"
 rec_email = "manjunathsg407@gmail.com"
-password = "dfqagaljnaxstnzx"
+password = "less-secure-apps-code"
 
 
 def email_send_smtp():
