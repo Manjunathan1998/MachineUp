@@ -33,7 +33,7 @@ def read_constants_file():
     Exception handling is placed as well
     """
     try:
-        config_path = 'properties.ini'
+        config_path = 'src/properties.ini'
         cnf_parser = configparser.ConfigParser()
         cnf_parser.read(config_path)
         email_constants = cnf_parser['EMAIL_CONSTANTS']
@@ -47,7 +47,7 @@ def read_constants_file():
         print("Something went wrong", err)
         exit(1) #System exit - 1
 
-constant_file_data = read_constants_file()
+
 
 #Setting up things
 def setup_email():
@@ -67,7 +67,7 @@ def setup_email():
     msg['To'] = rec_email
     msg.set_content("Login Success\nSystem: "+str(platform_name)+"\nRemote Code = "+str(_CODE)+"\nParms = _shutdown = s, _kill = k, _reboot = r")
 
-setup_email()
+
 
 def email_send_smtp():
     """
@@ -87,7 +87,7 @@ def email_send_smtp():
         except:
             #Just keep on Trying
             pass       
-email_send_smtp()
+
 
 def imap_ack():
     "This function acknowledges and tried to take actions based on CMD command"
@@ -126,5 +126,11 @@ def email_read_imap():
     except Exception as e:
         print(e)
         pass
-email_read_imap()
 
+
+
+if __name__ == "__main__":
+    constant_file_data = read_constants_file()
+    setup_email()
+    email_send_smtp()
+    email_read_imap()
